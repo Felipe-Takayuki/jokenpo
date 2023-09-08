@@ -15,7 +15,7 @@ class Game with ChangeNotifier {
      this.imageEnemyAttack = "",
      this.imagePlayerAttack = "",
   });
-
+   
   void attackScissors(){
     
     int enemyAttack;
@@ -42,6 +42,8 @@ class Game with ChangeNotifier {
         notifyListeners();
       }
     }
+    defineWinner();
+   
   }
   void attackStone(){
     int enemyAttack;
@@ -68,6 +70,8 @@ class Game with ChangeNotifier {
         notifyListeners();
       }
     }
+    defineWinner();
+   
   }
  
   void attackPaper(){
@@ -92,9 +96,30 @@ class Game with ChangeNotifier {
       case 2:{
         imageEnemyAttack = Images.scissor;
         attackEnemy++;
+
         notifyListeners();
       }
     }
+    defineWinner();
+   
+  
   }
 
+
+  
+  void defineWinner(){
+
+    if((attackPlayer == 9 && attackPlayer > attackEnemy ) ){
+      attackPlayer = 0;
+      attackEnemy = 0;
+
+  notifyListeners();
+    } 
+    else if (attackEnemy ==9 && attackEnemy > attackPlayer ){
+      attackEnemy = 0;
+      attackPlayer = 0;
+      notifyListeners();
+    }
+
+  }
 }

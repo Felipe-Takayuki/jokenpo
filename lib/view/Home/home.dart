@@ -14,9 +14,7 @@ class _HomeState extends State<Home> {
   
   @override
   Widget build(BuildContext context) {
-    print('construtor');
     Game game = Game();
-    
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.width;
     double sizebutton = height * 20/100;
@@ -32,7 +30,7 @@ class _HomeState extends State<Home> {
             SizedBox(
               width: sizebutton,
               height: sizebutton,
-            child: game.imageEnemyAttack.isNotEmpty ? Image.asset(game.imageEnemyAttack) : Text(""),
+            child: game.imageEnemyAttack.isNotEmpty ? Image.asset(game.imageEnemyAttack) : const Text(""),
             ),),
             const Spacer(),
             ListenableBuilder(listenable: game, builder: (context, child) => 
@@ -64,7 +62,7 @@ class _HomeState extends State<Home> {
             SizedBox(
               width: sizebutton,
               height: sizebutton,
-            child: game.imagePlayerAttack.isNotEmpty ? Image.asset(game.imagePlayerAttack) : Text(""),
+            child: game.imagePlayerAttack.isNotEmpty ? Image.asset(game.imagePlayerAttack) : const Text(""),
             ),),
             const Spacer(),
             Padding(
