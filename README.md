@@ -38,7 +38,7 @@ void attackPaper(){
   }
 ```
 
-e outra regra importante colocada foi limite de pontos para definir o vitorioso **(9)**:
+e outra regra importante colocada foi limite de pontos para definir o vencedor **(9)**:
 
 ```dart
 void defineWinner(){
