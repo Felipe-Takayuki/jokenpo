@@ -13,28 +13,25 @@ void attackPaper(){
     int enemyAttack;
     enemyAttack = Random().nextInt(3);
     imagePlayerAttack = Images.paper;
-    notifyListeners();
+    
     switch(enemyAttack){
       case 0:
       {
         imageEnemyAttack = Images.stone;
         attackPlayer++;
-        notifyListeners();
       }
       break;
       case 1:
       {
         imageEnemyAttack = Images.paper;
-        notifyListeners();
       }
       break;
       case 2:{
         imageEnemyAttack = Images.scissor;
         attackEnemy++;
-
-        notifyListeners();
       }
     }
+    notifyListeners();
   }
 ```
 
@@ -46,13 +43,13 @@ void defineWinner(){
     if((attackPlayer == 9 && attackPlayer > attackEnemy ) ){
       attackPlayer = 0;
       attackEnemy = 0;
-		  notifyListeners();
+      
     } 
     else if (attackEnemy ==9 && attackEnemy > attackPlayer ){
       attackEnemy = 0;
       attackPlayer = 0;
-			notifyListeners();
+			
     }
-
+    notifyListeners();
   }
 ```
