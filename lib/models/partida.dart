@@ -21,56 +21,57 @@ class Game with ChangeNotifier {
     int enemyAttack;
     enemyAttack = Random().nextInt(3);
     imagePlayerAttack = Images.scissor;
-    notifyListeners();
+   
     switch(enemyAttack){
       case 0:
       {
         imageEnemyAttack = Images.stone;
         attackEnemy ++;
-        notifyListeners();
+       
       }
       break;
       case 1:
       {
         imageEnemyAttack = Images.paper;
         attackPlayer ++;
-        notifyListeners();
+       
       }
       break;
       case 2:{
         imageEnemyAttack = Images.scissor;
-        notifyListeners();
+       
       }
     }
     defineWinner();
-   
+    notifyListeners();
   }
   void attackStone(){
     int enemyAttack;
     enemyAttack = Random().nextInt(3);
     imagePlayerAttack = Images.stone;
-    notifyListeners();
+   
     switch(enemyAttack){
       case 0:
       {
         imageEnemyAttack = Images.stone;
-        notifyListeners();
+       
       }
       break;
       case 1:
       {
         imageEnemyAttack = Images.paper;
         attackEnemy ++;
-        notifyListeners();
+       
       }
       break;
       case 2:{
         imageEnemyAttack = Images.scissor;
         attackPlayer++;
-        notifyListeners();
+       
       }
     }
     defineWinner();
+    notifyListeners();
    
   }
  
@@ -78,30 +79,30 @@ class Game with ChangeNotifier {
     int enemyAttack;
     enemyAttack = Random().nextInt(3);
     imagePlayerAttack = Images.paper;
-    notifyListeners();
+   
     switch(enemyAttack){
       case 0:
       {
         imageEnemyAttack = Images.stone;
         attackPlayer++;
-        notifyListeners();
+       
       }
       break;
       case 1:
       {
         imageEnemyAttack = Images.paper;
-        notifyListeners();
+       
       }
       break;
       case 2:{
         imageEnemyAttack = Images.scissor;
         attackEnemy++;
 
-        notifyListeners();
+       
       }
     }
     defineWinner();
-   
+    notifyListeners();
   
   }
 
@@ -113,13 +114,13 @@ class Game with ChangeNotifier {
       attackPlayer = 0;
       attackEnemy = 0;
 
-  notifyListeners();
+ 
     } 
     else if (attackEnemy ==9 && attackEnemy > attackPlayer ){
       attackEnemy = 0;
       attackPlayer = 0;
-      notifyListeners();
+     
     }
-
+   notifyListeners();
   }
 }
