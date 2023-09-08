@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pedra_papel_tesoura/models/partida.dart';
 import 'package:pedra_papel_tesoura/view/utils/imgs.dart';
+import 'package:pedra_papel_tesoura/view/widgets/dividerWidget.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -43,10 +44,10 @@ class _HomeState extends State<Home> {
               child:  Center(child: Text(game.attackEnemy.toString(), style: TextStyle(fontFamily: 'MinecraftFont', color: Colors.white, fontSize: height * 8/100),)),
             ),),
             const Spacer(),
-            const Divider(
-              height: 20,
-              color: Colors.black,
-            ),
+            ListenableBuilder(
+                listenable: game,
+                builder: (context, child) => 
+               MyDividerWidget(mensage: game.mensage)),
             const Spacer(flex: 2,),
             ListenableBuilder(listenable: game, builder: (context, child) => 
              Container(
@@ -58,6 +59,7 @@ class _HomeState extends State<Home> {
               child:  Center(child: Text(game.attackPlayer.toString(), style: TextStyle(fontFamily: 'MinecraftFont', color: Colors.white, fontSize: height * 8/100),)),
             ),),
             const Spacer(),
+               
               ListenableBuilder(listenable: game, builder: (context, child) => 
             SizedBox(
               width: sizebutton,

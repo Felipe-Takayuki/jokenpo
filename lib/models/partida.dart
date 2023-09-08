@@ -9,11 +9,13 @@ class Game with ChangeNotifier {
   int attackEnemy;
   String imageEnemyAttack;
   String imagePlayerAttack;
+  String mensage;
   Game({
      this.attackPlayer = 0,
      this.attackEnemy = 0,
      this.imageEnemyAttack = "",
      this.imagePlayerAttack = "",
+     this.mensage = ""
   });
    
   void attackScissors(){
@@ -113,13 +115,16 @@ class Game with ChangeNotifier {
     if((attackPlayer == 9 && attackPlayer > attackEnemy ) ){
       attackPlayer = 0;
       attackEnemy = 0;
-
+      mensage = "Venceu!";
  
     } 
     else if (attackEnemy ==9 && attackEnemy > attackPlayer ){
       attackEnemy = 0;
       attackPlayer = 0;
-     
+      mensage = "Perdeu!";
+    }
+    else{
+      mensage = "";
     }
    notifyListeners();
   }
