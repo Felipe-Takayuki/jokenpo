@@ -3,6 +3,7 @@ import 'package:pedra_papel_tesoura/models/partida.dart';
 import 'package:pedra_papel_tesoura/view/utils/imgs.dart';
 import 'package:pedra_papel_tesoura/view/widgets/dividerWidget.dart';
 
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -19,7 +20,7 @@ class _HomeState extends State<Home> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.width;
     double sizebutton = height * 20/100;
-   
+    Color colorclicked = Color.fromRGBO(196, 191, 191, 1);
     double sizecount =height * 18/100;
     return  Scaffold(
       body: ListenableBuilder(
@@ -68,39 +69,40 @@ class _HomeState extends State<Home> {
                 child: Row(
                  mainAxisAlignment: MainAxisAlignment.center,
                  children: [
-                   GestureDetector(onTap: game.attackStone, child: Container(
-                    width: sizebutton,
-                    height: sizebutton,
-                    padding: const EdgeInsets.all(10),
-                    decoration: const BoxDecoration(color:Color.fromRGBO(135, 135, 140, 1,),
-                      border: Border(bottom: BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)), top: BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)),
-                    left:  BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)), right:  BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)))
-                    
-                    ),
-                             
-                    child: Image.asset(Images.stone, fit: BoxFit.contain),
-                    
-                                   ),),
-                    GestureDetector(onTap: game.attackPaper, child: Container(
+                    GestureDetector(onTap: game.attackStone, child: Container(
                      width: sizebutton,
                      height: sizebutton,
                      padding: const EdgeInsets.all(10),
-                     decoration: const BoxDecoration(color:Color.fromRGBO(135, 135, 140, 1,),
-                       border: Border(bottom: BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)), top: BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)),
-                     left:  BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)), right:  BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)))
+                     decoration:  BoxDecoration(color: const Color.fromRGBO(135, 135, 140, 1,),
+                       border: Border(bottom:  BorderSide(width: 4, color: game.btn1 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked), top: BorderSide(width: 4, color :game.btn1 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked),
+                     left:  BorderSide(width: 4, color: game.btn1 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked), right:  BorderSide(width: 4, color: game.btn1 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked))
+                     
+                     ),
+                              
+                     child: Image.asset(Images.stone, fit: BoxFit.contain),
+                     
+                                    ),),
+                     GestureDetector(onTap: game.attackPaper, child: Container(
+                     width: sizebutton,
+                     height: sizebutton,
+                     padding: const EdgeInsets.all(10),
+                     decoration:  BoxDecoration(color: const Color.fromRGBO(135, 135, 140, 1,),
+                       border: Border(bottom:  BorderSide(width: 4, color: game.btn2 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked), top: BorderSide(width: 4, color :game.btn2 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked),
+                     left:  BorderSide(width: 4, color: game.btn2 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked), right:  BorderSide(width: 4, color: game.btn2 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked))
                      
                      ),
                               
                      child: Image.asset(Images.paper, fit: BoxFit.contain),
                      
                                     ),),
+                     
                     GestureDetector(onTap: game.attackScissors, child: Container(
                      width: sizebutton,
                      height: sizebutton,
                      padding: const EdgeInsets.all(10),
-                     decoration: const BoxDecoration(color:Color.fromRGBO(135, 135, 140, 1,),
-                       border: Border(bottom: BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)), top: BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)),
-                     left:  BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)), right:  BorderSide(width: 4, color: Color.fromRGBO(93, 93, 93, 1)))
+                     decoration:  BoxDecoration(color: const Color.fromRGBO(135, 135, 140, 1,),
+                       border: Border(bottom:  BorderSide(width: 4, color: game.btn3 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked), top: BorderSide(width: 4, color :game.btn3 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked),
+                     left:  BorderSide(width: 4, color: game.btn3 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked), right:  BorderSide(width: 4, color: game.btn3 == false ? const Color.fromRGBO(93, 93, 93, 1) : colorclicked))
                      
                      ),
                               

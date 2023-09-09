@@ -10,16 +10,22 @@ class Game with ChangeNotifier {
   String imageEnemyAttack;
   String imagePlayerAttack;
   String mensage;
+  bool btn1, btn2, btn3;
   Game({
      this.attackPlayer = 0,
      this.attackEnemy = 0,
      this.imageEnemyAttack = "",
      this.imagePlayerAttack = "",
-     this.mensage = ""
+     this.mensage = "",
+     this.btn1 = false,
+     this.btn2 = false,
+     this.btn3 = false
   });
    
   void attackScissors(){
-    
+   btn3 = true;
+    btn1= false;
+    btn2= false;
     int enemyAttack;
     enemyAttack = Random().nextInt(3);
     imagePlayerAttack = Images.scissor;
@@ -29,25 +35,26 @@ class Game with ChangeNotifier {
       {
         imageEnemyAttack = Images.stone;
         attackEnemy ++;
-       
       }
       break;
       case 1:
       {
         imageEnemyAttack = Images.paper;
         attackPlayer ++;
-       
       }
       break;
       case 2:{
         imageEnemyAttack = Images.scissor;
-       
       }
     }
     defineWinner();
     notifyListeners();
   }
   void attackStone(){
+   
+     btn1 = true;
+    btn2 = false;
+    btn3 = false;
     int enemyAttack;
     enemyAttack = Random().nextInt(3);
     imagePlayerAttack = Images.stone;
@@ -56,28 +63,29 @@ class Game with ChangeNotifier {
       case 0:
       {
         imageEnemyAttack = Images.stone;
-       
       }
       break;
       case 1:
       {
         imageEnemyAttack = Images.paper;
         attackEnemy ++;
-       
       }
       break;
       case 2:{
         imageEnemyAttack = Images.scissor;
         attackPlayer++;
-       
       }
     }
     defineWinner();
     notifyListeners();
-   
   }
  
   void attackPaper(){
+     btn2 = true;
+    btn1 = false;
+    btn3 = false;
+    
+  
     int enemyAttack;
     enemyAttack = Random().nextInt(3);
     imagePlayerAttack = Images.paper;
@@ -87,20 +95,16 @@ class Game with ChangeNotifier {
       {
         imageEnemyAttack = Images.stone;
         attackPlayer++;
-       
       }
       break;
       case 1:
       {
         imageEnemyAttack = Images.paper;
-       
       }
       break;
       case 2:{
         imageEnemyAttack = Images.scissor;
         attackEnemy++;
-
-       
       }
     }
     defineWinner();
@@ -128,4 +132,5 @@ class Game with ChangeNotifier {
     }
    notifyListeners();
   }
+
 }
